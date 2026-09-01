@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Shared landing page for CO3133 — Deep Learning and Its Applications.">
+  <title>CO3133 | Deep Learning and Its Applications</title>
+  <style>
+    :root {
+      --navy: #0b2a4a;
+      --blue: #1769aa;
+      --cyan: #16a6b6;
+      --ink: #17324d;
+      --muted: #64748b;
+      --paper: #f7fbff;
+      --white: #ffffff;
+      --line: rgba(23, 105, 170, 0.14);
+      --shadow: 0 22px 60px rgba(11, 42, 74, 0.12);
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 15% 10%, rgba(22, 166, 182, 0.13), transparent 28rem),
+        radial-gradient(circle at 90% 5%, rgba(23, 105, 170, 0.12), transparent 26rem),
+        var(--paper);
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    .page-shell {
+      width: min(1120px, calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 24px 0;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      color: var(--navy);
+    }
+
+    .brand-mark {
+      display: grid;
+      place-items: center;
+      width: 42px;
+      height: 42px;
+      border-radius: 13px;
+      color: var(--white);
+      background: linear-gradient(135deg, var(--blue), var(--cyan));
+      box-shadow: 0 10px 25px rgba(23, 105, 170, 0.25);
+    }
+
+    .course-pill {
+      padding: 9px 14px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      color: var(--blue);
+      background: rgba(255, 255, 255, 0.72);
+      font-size: 0.82rem;
+      font-weight: 750;
+      letter-spacing: 0.06em;
+      backdrop-filter: blur(10px);
+    }
+
+    .top-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .nav-link {
+      padding: 9px 12px;
+      color: var(--muted);
+      font-size: 0.86rem;
+      font-weight: 700;
+      transition: color 180ms ease;
+    }
+
+    .nav-link:hover { color: var(--blue); }
+
+    main {
+      padding: 12px 0 76px;
+    }
+
+    .hero {
+      width: 100%;
+      min-height: calc(100vh - 122px);
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 54px;
+      align-items: center;
+      padding: 56px 0 84px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 18px;
+      color: var(--blue);
+      font-size: 0.82rem;
+      font-weight: 800;
+      letter-spacing: 0.11em;
+      text-transform: uppercase;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 28px;
+      height: 2px;
+      border-radius: 999px;
+      background: var(--cyan);
+    }
+
+    h1 {
+      max-width: 720px;
+      margin: 0;
+      color: var(--navy);
+      font-size: clamp(3rem, 7vw, 5.8rem);
+      line-height: 0.98;
+      letter-spacing: -0.065em;
+    }
+
+    h1 span {
+      display: block;
+      margin-top: 8px;
+      color: transparent;
+      background: linear-gradient(90deg, var(--blue), var(--cyan));
+      background-clip: text;
+      -webkit-background-clip: text;
+    }
+
+    .intro {
+      max-width: 630px;
+      margin: 26px 0 0;
+      color: var(--muted);
+      font-size: clamp(1rem, 1.8vw, 1.18rem);
+      line-height: 1.75;
+    }
+
+    .institution {
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+      margin-top: 34px;
+      padding-top: 26px;
+      border-top: 1px solid var(--line);
+    }
+
+    .institution-icon {
+      flex: 0 0 auto;
+      display: grid;
+      place-items: center;
+      width: 44px;
+      height: 44px;
+      border-radius: 14px;
+      color: var(--blue);
+      background: rgba(23, 105, 170, 0.09);
+    }
+
+    .institution strong,
+    .institution span { display: block; }
+
+    .institution strong {
+      margin: 1px 0 5px;
+      color: var(--navy);
+      font-size: 1rem;
+    }
+
+    .institution span {
+      color: var(--muted);
+      font-size: 0.92rem;
+      line-height: 1.5;
+    }
+
+    .info-card {
+      position: relative;
+      overflow: hidden;
+      padding: 34px;
+      border: 1px solid rgba(255, 255, 255, 0.8);
+      border-radius: 30px;
+      background: rgba(255, 255, 255, 0.78);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(18px);
+    }
+
+    .info-card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 5px;
+      background: linear-gradient(90deg, var(--blue), var(--cyan));
+    }
+
+    .card-label {
+      margin: 0 0 26px;
+      color: var(--navy);
+      font-size: 1.15rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+    }
+
+    .details {
+      display: grid;
+      gap: 12px;
+      margin: 0;
+    }
+
+    .detail-row {
+      display: grid;
+      grid-template-columns: 46px 1fr;
+      gap: 14px;
+      align-items: center;
+      padding: 15px;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      background: rgba(247, 251, 255, 0.74);
+      transition: transform 180ms ease, border-color 180ms ease, box-shadow 180ms ease;
+    }
+
+    .detail-row:hover {
+      transform: translateY(-3px);
+      border-color: rgba(23, 105, 170, 0.28);
+      box-shadow: 0 12px 28px rgba(11, 42, 74, 0.08);
+    }
+
+    .detail-icon {
+      display: grid;
+      place-items: center;
+      width: 46px;
+      height: 46px;
+      border-radius: 14px;
+      color: var(--white);
+      background: linear-gradient(135deg, var(--blue), var(--cyan));
+      font-size: 1.05rem;
+      font-weight: 800;
+    }
+
+    dt {
+      margin-bottom: 3px;
+      color: var(--muted);
+      font-size: 0.75rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    dd {
+      margin: 0;
+      color: var(--navy);
+      font-size: 0.98rem;
+      font-weight: 700;
+      line-height: 1.42;
+    }
+
+    footer {
+      padding: 0 0 26px;
+      color: var(--muted);
+      font-size: 0.82rem;
+      text-align: center;
+    }
+
+    @keyframes enter {
+      from { opacity: 0; transform: translateY(18px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .hero-copy, .info-card {
+      animation: enter 650ms ease both;
+    }
+
+    .info-card { animation-delay: 110ms; }
+
+    .content-section {
+      padding: 92px 0;
+      border-top: 1px solid var(--line);
+    }
+
+    .section-heading {
+      display: grid;
+      grid-template-columns: 0.7fr 1.3fr;
+      gap: 36px;
+      align-items: end;
+      margin-bottom: 38px;
+    }
+
+    .section-kicker {
+      margin: 0 0 10px;
+      color: var(--blue);
+      font-size: 0.8rem;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .section-heading h2 {
+      margin: 0;
+      color: var(--navy);
+      font-size: clamp(2.2rem, 5vw, 4.1rem);
+      line-height: 1;
+      letter-spacing: -0.055em;
+    }
+
+    .section-copy {
+      max-width: 620px;
+      margin: 0;
+      color: var(--muted);
+      font-size: 1.03rem;
+      line-height: 1.7;
+    }
+
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .member-card {
+      display: flex;
+      flex-direction: column;
+      min-height: 330px;
+      padding: 26px;
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      background: rgba(255, 255, 255, 0.74);
+      box-shadow: 0 14px 38px rgba(11, 42, 74, 0.07);
+      transition: transform 180ms ease, box-shadow 180ms ease;
+    }
+
+    .member-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 22px 48px rgba(11, 42, 74, 0.11);
+    }
+
+    .member-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+
+    .avatar {
+      display: grid;
+      place-items: center;
+      width: 58px;
+      height: 58px;
+      border-radius: 18px;
+      color: var(--white);
+      background: linear-gradient(135deg, var(--blue), var(--cyan));
+      font-size: 1rem;
+      font-weight: 850;
+      box-shadow: 0 12px 24px rgba(23, 105, 170, 0.2);
+    }
+
+    .leader-badge {
+      padding: 7px 10px;
+      border-radius: 999px;
+      color: var(--blue);
+      background: rgba(23, 105, 170, 0.09);
+      font-size: 0.7rem;
+      font-weight: 850;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .member-card h3 {
+      margin: 0;
+      color: var(--navy);
+      font-size: 1.25rem;
+      line-height: 1.25;
+      letter-spacing: -0.025em;
+    }
+
+    .student-id {
+      margin: 7px 0 17px;
+      color: var(--blue);
+      font-size: 0.84rem;
+      font-weight: 800;
+      letter-spacing: 0.05em;
+    }
+
+    .role {
+      flex: 1;
+      margin: 0 0 22px;
+      color: var(--muted);
+      line-height: 1.65;
+    }
+
+    .github-link,
+    .assignment-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      color: var(--navy);
+      font-weight: 800;
+    }
+
+    .github-link:hover,
+    .assignment-link:hover { color: var(--blue); }
+
+    .assignment-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+    }
+
+    .assignment-link {
+      min-height: 118px;
+      padding: 24px;
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      background: rgba(255, 255, 255, 0.74);
+      box-shadow: 0 12px 32px rgba(11, 42, 74, 0.06);
+      transition: transform 180ms ease, border-color 180ms ease;
+    }
+
+    .assignment-link:hover {
+      transform: translateY(-3px);
+      border-color: rgba(23, 105, 170, 0.35);
+    }
+
+    .assignment-number {
+      display: block;
+      margin-bottom: 7px;
+      color: var(--muted);
+      font-size: 0.74rem;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .assignment-name { font-size: 1.18rem; }
+
+    .arrow {
+      flex: 0 0 auto;
+      display: grid;
+      place-items: center;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      color: var(--blue);
+      background: rgba(23, 105, 170, 0.09);
+    }
+
+    .disclosure {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 28px;
+      padding: 34px;
+      border-radius: 26px;
+      color: var(--white);
+      background: linear-gradient(125deg, var(--navy), var(--blue));
+      box-shadow: 0 22px 54px rgba(11, 42, 74, 0.2);
+    }
+
+    .disclosure h2 {
+      margin: 0 0 8px;
+      font-size: clamp(1.6rem, 3vw, 2.25rem);
+      letter-spacing: -0.035em;
+    }
+
+    .disclosure p {
+      margin: 0;
+      color: rgba(255, 255, 255, 0.72);
+      line-height: 1.6;
+    }
+
+    .disclosure-link {
+      flex: 0 0 auto;
+      padding: 13px 18px;
+      border-radius: 14px;
+      color: var(--navy);
+      background: var(--white);
+      font-size: 0.86rem;
+      font-weight: 850;
+    }
+
+    @media (max-width: 820px) {
+      .page-shell { width: min(100% - 28px, 680px); }
+      .topbar { padding: 18px 0; }
+      .brand-text { display: none; }
+      .nav-link { display: none; }
+      main { padding: 0 0 54px; }
+      .hero { grid-template-columns: 1fr; gap: 36px; }
+      h1 { font-size: clamp(3rem, 16vw, 5rem); }
+      .info-card { padding: 24px; border-radius: 24px; }
+      .content-section { padding: 68px 0; }
+      .section-heading { grid-template-columns: 1fr; gap: 18px; }
+      .team-grid { grid-template-columns: 1fr; }
+      .member-card { min-height: 0; }
+      .assignment-grid { grid-template-columns: 1fr; }
+      .disclosure { align-items: flex-start; flex-direction: column; padding: 26px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { animation: none !important; transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <div class="page-shell">
+    <header class="topbar">
+      <a class="brand" href="#" aria-label="HCMUT course landing page">
+        <span class="brand-mark">AI</span>
+        <span class="brand-text">HCMUT · CSE</span>
+      </a>
+      <div class="top-actions">
+        <a class="nav-link" href="#team">Team</a>
+        <a class="nav-link" href="#assignments">Assignments</a>
+        <span class="course-pill">SEMESTER 261</span>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero" aria-labelledby="page-title">
+        <div class="hero-copy">
+          <p class="eyebrow">Course landing page</p>
+          <h1 id="page-title">Deep Learning <span>&amp; Its Applications</span></h1>
+          <p class="intro">
+            A shared academic workspace for exploring deep learning foundations,
+            models, experiments, and real-world applications.
+          </p>
+
+          <div class="institution">
+            <div class="institution-icon" aria-hidden="true">◆</div>
+            <div>
+              <strong>Ho Chi Minh City University of Technology – VNU-HCM</strong>
+              <span>Faculty of Computer Science and Engineering</span>
+            </div>
+          </div>
+        </div>
+
+        <aside class="info-card" aria-label="Course information">
+          <h2 class="card-label">Course information</h2>
+          <dl class="details">
+            <div class="detail-row">
+              <div class="detail-icon" aria-hidden="true">01</div>
+              <div>
+                <dt>Course name</dt>
+                <dd>Deep Learning and Its Applications</dd>
+              </div>
+            </div>
+            <div class="detail-row">
+              <div class="detail-icon" aria-hidden="true">02</div>
+              <div>
+                <dt>Course code</dt>
+                <dd>CO3133</dd>
+              </div>
+            </div>
+            <div class="detail-row">
+              <div class="detail-icon" aria-hidden="true">03</div>
+              <div>
+                <dt>Semester</dt>
+                <dd>261</dd>
+              </div>
+            </div>
+            <div class="detail-row">
+              <div class="detail-icon" aria-hidden="true">04</div>
+              <div>
+                <dt>Instructor</dt>
+                <dd>Lê Thành Sách</dd>
+              </div>
+            </div>
+          </dl>
+        </aside>
+      </section>
+
+      <section class="content-section" id="team" aria-labelledby="team-title">
+        <div class="section-heading">
+          <div>
+            <p class="section-kicker">Group information</p>
+            <h2 id="team-title">Meet Goat.</h2>
+          </div>
+          <p class="section-copy">
+            Three members, three assignments, and one shared goal: building clear,
+            reproducible deep learning work throughout the course.
+          </p>
+        </div>
+
+        <div class="team-grid">
+          <article class="member-card">
+            <div class="member-top">
+              <div class="avatar" aria-hidden="true">HM</div>
+            </div>
+            <h3>Hoàng Trọng Huy Minh</h3>
+            <p class="student-id">STUDENT ID · 2452743</p>
+            <p class="role">Takes full responsibility for Assignment 01.</p>
+            <a class="github-link" href="https://github.com/HminhHminh" target="_blank" rel="noopener noreferrer">
+              GitHub profile <span aria-hidden="true">↗</span>
+            </a>
+          </article>
+
+          <article class="member-card">
+            <div class="member-top">
+              <div class="avatar" aria-hidden="true">TT</div>
+              <span class="leader-badge">Team leader</span>
+            </div>
+            <h3>Võ Lê Thành Triệu</h3>
+            <p class="student-id">STUDENT ID · 2453297</p>
+            <p class="role">Creates the GitHub Pages site, manages Git, and takes full responsibility for Assignment 02.</p>
+            <a class="github-link" href="https://github.com/volethanhtrieu" target="_blank" rel="noopener noreferrer">
+              GitHub profile <span aria-hidden="true">↗</span>
+            </a>
+          </article>
+
+          <article class="member-card">
+            <div class="member-top">
+              <div class="avatar" aria-hidden="true">NQ</div>
+            </div>
+            <h3>Nguyễn Huỳnh Nam Quốc</h3>
+            <p class="student-id">STUDENT ID · 2453089</p>
+            <p class="role">Takes full responsibility for Assignment 03.</p>
+            <a class="github-link" href="https://github.com/nguyenhuynhnamquoc" target="_blank" rel="noopener noreferrer">
+              GitHub profile <span aria-hidden="true">↗</span>
+            </a>
+          </article>
+        </div>
+      </section>
+
+      <section class="content-section" id="assignments" aria-labelledby="assignments-title">
+        <div class="section-heading">
+          <div>
+            <p class="section-kicker">Assignment index</p>
+            <h2 id="assignments-title">Project work.</h2>
+          </div>
+          <p class="section-copy">Direct access to the shared repository and each course assignment.</p>
+        </div>
+
+        <div class="assignment-grid">
+          <a class="assignment-link" href="https://github.com/volethanhtrieu/Deep-Learning-project-main-page" target="_blank" rel="noopener noreferrer">
+            <span><span class="assignment-number">Main repository</span><span class="assignment-name">Host page</span></span>
+            <span class="arrow" aria-hidden="true">↗</span>
+          </a>
+          <a class="assignment-link" href="https://github.com/volethanhtrieu/Deep-Learning-project-main-page/tree/main/Assignment%2001" target="_blank" rel="noopener noreferrer">
+            <span><span class="assignment-number">Assignment 01</span><span class="assignment-name">View project files</span></span>
+            <span class="arrow" aria-hidden="true">↗</span>
+          </a>
+          <a class="assignment-link" href="https://github.com/volethanhtrieu/Deep-Learning-project-main-page/tree/main/Assignment%2002" target="_blank" rel="noopener noreferrer">
+            <span><span class="assignment-number">Assignment 02</span><span class="assignment-name">View project files</span></span>
+            <span class="arrow" aria-hidden="true">↗</span>
+          </a>
+          <a class="assignment-link" href="https://github.com/volethanhtrieu/Deep-Learning-project-main-page/tree/main/Assignment%2003" target="_blank" rel="noopener noreferrer">
+            <span><span class="assignment-number">Assignment 03</span><span class="assignment-name">View project files</span></span>
+            <span class="arrow" aria-hidden="true">↗</span>
+          </a>
+        </div>
+      </section>
+
+      <section class="content-section" id="ai-disclosure" aria-labelledby="disclosure-title">
+        <div class="disclosure">
+          <div>
+            <h2 id="disclosure-title">AI Usage Disclosure</h2>
+            <p>A shared disclosure summarizing AI use across the course projects.</p>
+          </div>
+          <a class="disclosure-link" href="AI-Usage-Disclosure/README.md">Open disclosure →</a>
+        </div>
+      </section>
+    </main>
+
+    <footer>Group Goat · CO3133 · Deep Learning and Its Applications</footer>
+  </div>
+</body>
+</html>
