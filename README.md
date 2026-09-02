@@ -82,9 +82,9 @@ Faculty of Computer Science and Engineering
 | Project | Responsible member | Link |
 |:--|:--|:--:|
 | **Main repository** | Group Goat | [Open repository →](https://github.com/volethanhtrieu/Deep-Learning-project-main-page) |
-| **Assignment 01** | Hoàng Trọng Huy Minh | [View files →](https://github.com/volethanhtrieu/Deep-Learning-project-main-page/tree/main/Assignment%2001) |
-| **Assignment 02** | Võ Lê Thành Triệu | [View files →](https://github.com/volethanhtrieu/Deep-Learning-project-main-page/tree/main/Assignment%2002) |
-| **Assignment 03** | Nguyễn Huỳnh Nam Quốc | [View files →](https://github.com/volethanhtrieu/Deep-Learning-project-main-page/tree/main/Assignment%2003) |
+| **Assignment 01** | Hoàng Trọng Huy Minh | [View files →](https://github.com/volethanhtrieu/DL_Assignment-01) |
+| **Assignment 02** | Võ Lê Thành Triệu | [View files →](https://github.com/volethanhtrieu/DL_Assignment-02) |
+| **Assignment 03** | Nguyễn Huỳnh Nam Quốc | [View files →](https://github.com/volethanhtrieu/DL_Assignment-03) |
 
 ---
 
