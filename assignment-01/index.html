@@ -1125,29 +1125,72 @@
     <!-- Team & Roles Section -->
     <section class="section-team">
       <div class="team-grid">
-        <div class="member-card">
-          <div class="avatar">HM</div>
+        <div class="member-card" style="border: 2px solid rgba(16, 185, 129, 0.4); box-shadow: 0 8px 24px rgba(16, 185, 129, 0.1);">
+          <div class="avatar" style="background: linear-gradient(135deg, #059669, #10b981); color: #fff;">HM</div>
           <div class="member-info">
             <h4>Hoàng Trọng Huy Minh</h4>
-            <span class="id-pill">2452743</span>
-            <p>Data Pipelines, EDA, Preprocessing, CNN & Transformer Implementations, Fairness Testing</p>
+            <span class="id-pill" style="background: rgba(16, 185, 129, 0.15); color: #059669; border-color: rgba(16, 185, 129, 0.3); font-weight: 700;">2452743 · 100% Contribution (Sole Contributor)</span>
+            <p><strong>Assignment 1 Lead & Sole Author:</strong> End-to-end Problem Formulation, EDA (5 visualizations), Data Pipelines & Leakage-Free DataLoader, Linear & MLP Model Architectures, Training Loop with Early Stopping, Metric Tracking, Experiments & Quantitative Comparison, Error Analysis, Technical Report Writing, and Webpage Deployment.</p>
           </div>
         </div>
-        <div class="member-card">
-          <div class="avatar">TT</div>
+        <div class="member-card" style="opacity: 0.75;">
+          <div class="avatar" style="background: #e2e8f0; color: #64748b;">TT</div>
           <div class="member-info">
             <h4>Võ Lê Thành Triệu</h4>
-            <span class="id-pill">2453297 · Team Leader</span>
-            <p>Architecture Benchmark Design, Linear & MLP Modeling, Training Loops, Error Analysis</p>
+            <span class="id-pill" style="background: rgba(100, 116, 139, 0.1); color: #64748b; border-color: rgba(100, 116, 139, 0.2);">2453297 · 0% Contribution</span>
+            <p style="color: var(--muted); font-style: italic;">No contribution to Assignment 1.</p>
           </div>
         </div>
-        <div class="member-card">
-          <div class="avatar">NQ</div>
+        <div class="member-card" style="opacity: 0.75;">
+          <div class="avatar" style="background: #e2e8f0; color: #64748b;">NQ</div>
           <div class="member-info">
             <h4>Nguyễn Huỳnh Nam Quốc</h4>
-            <span class="id-pill">2453089</span>
-            <p>LSTM/GRU Sequential Modeling, Hyperparameter Tuning, Metrics Evaluation, Slide/Report Prep</p>
+            <span class="id-pill" style="background: rgba(100, 116, 139, 0.1); color: #64748b; border-color: rgba(100, 116, 139, 0.2);">2453089 · 0% Contribution</span>
+            <p style="color: var(--muted); font-style: italic;">No contribution to Assignment 1.</p>
           </div>
+        </div>
+      </div>
+
+      <!-- Assignment 1 Individual Contribution Breakdown Table -->
+      <div style="margin-top: 20px; background: var(--card-bg); border: 1px solid var(--card-border); border-radius: var(--radius-sm); padding: 16px 20px;">
+        <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px; flex-wrap: wrap; gap: 8px;">
+          <h4 style="margin: 0; font-size: 0.95rem; color: var(--navy); display: flex; align-items: center; gap: 8px;">
+            <span style="display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: #10b981;"></span>
+            Assignment 01 Member Contribution Breakdown
+          </h4>
+          <span style="font-size: 0.75rem; color: var(--muted); font-weight: 500;">In accordance with Handbook Section 5 & Individual Grading Policy</span>
+        </div>
+        <div class="table-wrapper" style="margin: 0;">
+          <table class="data-table" style="font-size: 0.85rem;">
+            <thead>
+              <tr>
+                <th>Member Name</th>
+                <th>Student ID</th>
+                <th>A1 Contribution (%)</th>
+                <th>Tasks & Deliverables Completed</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr style="background: rgba(16, 185, 129, 0.05);">
+                <td><strong>Hoàng Trọng Huy Minh</strong></td>
+                <td><code>2452743</code></td>
+                <td><strong style="color: #059669; font-size: 0.95rem;">100%</strong></td>
+                <td><strong>Sole Contributor:</strong> Designed, implemented, trained, evaluated, and documented all Assignment 1 deliverables (EDA, DataLoader, Linear model, MLP model, training engine, evaluation metrics, LaTeX report, and GitHub Pages site).</td>
+              </tr>
+              <tr style="opacity: 0.65;">
+                <td>Võ Lê Thành Triệu</td>
+                <td><code>2453297</code></td>
+                <td>0%</td>
+                <td>No contribution to Assignment 1.</td>
+              </tr>
+              <tr style="opacity: 0.65;">
+                <td>Nguyễn Huỳnh Nam Quốc</td>
+                <td><code>2453089</code></td>
+                <td>0%</td>
+                <td>No contribution to Assignment 1.</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
       </div>
     </section>
@@ -2137,7 +2180,7 @@ python evaluate.py --model cnn --checkpoint checkpoints/cnn_best.pt --generate-c
             </div>
           </div>
           <p style="font-size: 0.8rem; color: var(--muted); text-align: center;">
-            All group members (Huy Minh, Thành Triệu, Nam Quốc) actively present their respective contributions in the video defense.
+            Oral defense and pipeline demonstration presented by Hoàng Trọng Huy Minh (sole contributor for Assignment 1).
           </p>
         </section>
 
@@ -2168,34 +2211,34 @@ python evaluate.py --model cnn --checkpoint checkpoints/cnn_best.pt --generate-c
               <tbody>
                 <tr>
                   <td><strong>Antigravity / Gemini</strong></td>
-                  <td>Võ Lê Thành Triệu</td>
-                  <td>Pipeline Skeleton & Validation Loop</td>
-                  <td>Suggested sample-weighted batch accumulation and PyTorch DataLoader pin_memory flag.</td>
-                  <td>Cross-referenced PyTorch 2.4 documentation; validated loss convergence with small controlled batch tests.</td>
-                  <td><code>src/train.py</code>, Sec 3.2</td>
+                  <td><strong>Hoàng Trọng Huy Minh</strong></td>
+                  <td>Pipeline Architecture & Training Loop Engine</td>
+                  <td>Assisted with modular pipeline structure (<code>data_setup.py</code>, <code>engine.py</code>, <code>metrics.py</code>), DataLoader memory pinning, and EarlyStopping patience logic.</td>
+                  <td>Cross-referenced official PyTorch 2.4 documentation; verified loss convergence, gradient propagation, and stratified splits on controlled mini-batches.</td>
+                  <td><code>train.py</code>, <code>engine.py</code>, Sec 3.2</td>
                 </tr>
                 <tr>
                   <td><strong>Antigravity / Gemini</strong></td>
-                  <td>Hoàng Trọng Huy Minh</td>
-                  <td>ViT Patch Projection Module</td>
-                  <td>Provided initial tensor reshaping logic for converting 2D images into 1D patch sequences.</td>
-                  <td>Inspected tensor dimensions with unit assertions; tested equivariance properties.</td>
-                  <td><code>src/models/vit.py</code>, Sec 3.2</td>
+                  <td><strong>Hoàng Trọng Huy Minh</strong></td>
+                  <td>Linear & MLP Model Design and Regularization</td>
+                  <td>Suggested hidden dimension topology (784 → 256 → 128 → 10), confirmed omission of softmax before CrossEntropyLoss per handbook rubric, and advised on BatchNorm/Dropout(0.2) positioning.</td>
+                  <td>Verified parameter count calculations (7,850 and 235,146 parameters); inspected weight distributions and validation accuracy stability.</td>
+                  <td><code>models.py</code>, Sec 3.1</td>
                 </tr>
                 <tr>
                   <td><strong>Antigravity / Gemini</strong></td>
-                  <td>Nguyễn Huỳnh Nam Quốc</td>
-                  <td>Metric Formatting & Confusion Matrix</td>
-                  <td>Generated SVG confusion matrix visualization templates and CSS styling rules.</td>
-                  <td>Manually verified matrix cell numbers against raw scikit-learn classification report outputs.</td>
-                  <td><code>assignment-01/index.html</code>, Sec 3.3</td>
+                  <td><strong>Hoàng Trọng Huy Minh</strong></td>
+                  <td>Metric Computation, Visualizations & HTML Webpage UI</td>
+                  <td>Assisted with macro-F1 metric calculation, inference latency benchmarking via <code>torch.cuda.synchronize()</code>, and structured HTML/CSS with MathJax 3 integration.</td>
+                  <td>Manually verified confusion matrix diagonals against raw test predictions; validated math formula rendering and UI responsiveness across devices.</td>
+                  <td><code>metrics.py</code>, <code>assignment-01/index.html</code>, Sec 4</td>
                 </tr>
               </tbody>
             </table>
           </div>
 
           <div class="math-box">
-            <strong>Group Honor Declaration:</strong> All reported numbers, model checkpoints, and experimental observations reflect genuine, verified training runs conducted by Group Goat. No data, citations, or metrics have been fabricated.
+            <strong>Academic Honor Declaration:</strong> I, <strong>Hoàng Trọng Huy Minh</strong> (Student ID: 2452743), declare that I am the sole author and contributor for Assignment 1. All reported numbers, model checkpoints, and experimental observations reflect genuine, verified training runs conducted on my local hardware. No data, citations, or metrics have been fabricated.
           </div>
         </section>
 
