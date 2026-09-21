@@ -1018,16 +1018,31 @@
     }
 
     /* Code Snippet Box with Copy Button */
-    .code-block {
-      background: #0d1b2a;
-      border-radius: var(--radius);
-      padding: 18px 20px;
-      margin: 16px 0;
+    .code-block-wrapper {
       position: relative;
+      margin: 18px 0;
+    }
+
+    .code-block {
+      background: #091726;
+      border: 1px solid rgba(23, 105, 170, 0.25);
+      border-radius: var(--radius-sm);
+      padding: 22px 24px;
+      margin: 0;
       font-family: var(--font-mono);
-      font-size: 0.82rem;
-      color: #e0e6ed;
+      font-size: 0.84rem;
+      line-height: 1.7;
+      color: #e2e8f0;
       overflow-x: auto;
+      white-space: pre;
+      box-shadow: 0 4px 16px rgba(6, 24, 44, 0.25);
+    }
+
+    .code-block code {
+      font-family: inherit;
+      font-size: inherit;
+      white-space: pre;
+      display: block;
     }
 
     .copy-btn {
@@ -1035,18 +1050,21 @@
       top: 12px;
       right: 12px;
       background: rgba(255, 255, 255, 0.12);
-      border: 1px solid rgba(255, 255, 255, 0.2);
+      border: 1px solid rgba(255, 255, 255, 0.25);
       color: #fff;
       font-size: 0.72rem;
-      padding: 4px 10px;
+      font-weight: 600;
+      padding: 5px 12px;
       border-radius: 6px;
       cursor: pointer;
       font-family: var(--font-sans);
       transition: all 0.15s ease;
+      z-index: 2;
     }
 
     .copy-btn:hover {
-      background: rgba(255, 255, 255, 0.22);
+      background: rgba(23, 105, 170, 0.45);
+      border-color: var(--cyan);
     }
 
     /* Video Container */
@@ -2367,47 +2385,60 @@
           </div>
 
           <h3>1. Repository Structure</h3>
-          <div class="code-block">
-            DL_Assignment-01/
-            ├── configs/ # Hyperparameter YAML configs for all 5 models
-            │ ├── linear.yaml
-            │ ├── mlp.yaml
-            │ ├── cnn.yaml
-            │ ├── lstm.yaml
-            │ └── vit.yaml
-            ├── src/
-            │ ├── data/ # Dataset & DataLoader with fixed seed splitting
-            │ ├── models/ # PyTorch implementations of the 5 model families
-            │ ├── utils/ # Metric computation, confusion matrix, logging
-            │ └── train.py # Unified training script
-            ├── checkpoints/ # Serialized model weights (*.pt)
-            ├── docs/ # PDF report, slides, and figures
-            ├── evaluate.py # Evaluation & test verification script
-            ├── requirements.txt # Exact frozen dependencies
-            └── README.md # Setup and execution guide
+          <div class="code-block-wrapper">
+            <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+            <pre class="code-block"><code>DL_Assignment-01/
+├── checkpoints/                 # Serialized model checkpoints
+│   ├── best_linear.pth          # Best Linear model (Val Macro-F1: 84.37%)
+│   ├── best_mlp.pth             # Best MLP model (Val Macro-F1: 88.83%)
+│   └── best_cnn.pth             # Best CNN model (Val Macro-F1: 90.93%)
+├── docs/                        # Project documentation & reports
+│   └── Report_Assignment_01.pdf # Full Milestone 1 PDF Report
+├── eda_figures/                 # 5 Exploratory Data Analysis figures
+│   ├── fig1_representative_samples.png
+│   ├── fig2_class_distribution.png
+│   ├── fig3_pixel_distribution.png
+│   ├── fig4_class_prototypes.png
+│   └── fig5_pca_clusters.png
+├── outputs/                     # Empirical training logs & visual outputs
+│   ├── checkpoints/             # History files (CSV & JSON) and weights
+│   └── figures/                 # Confusion matrices, curves, prediction examples
+├── data_setup.py                # Stratified 50k/10k/10k DataLoader (seed=42, no leakage)
+├── models.py                    # PyTorch architectures (LinearClassifier, MLPClassifier, CNNClassifier)
+├── engine.py                    # Train, validate, fit with EarlyStopping & history tracking
+├── metrics.py                   # Accuracy, Macro-F1, Confusion Matrix, parameter counting
+├── train.py                     # Unified CLI training script
+├── generate_eda_graphs.py       # Standalone EDA generator
+├── requirements.txt             # Frozen dependencies
+└── README.md                    # Setup and execution guide</code></pre>
           </div>
 
           <h3>2. Reproduction Instructions</h3>
           <p>Execute the following shell commands in a terminal environment with Python 3.10+ and PyTorch:</p>
 
-          <div class="code-block">
+          <div class="code-block-wrapper">
             <button class="copy-btn" onclick="copyCode(this)">Copy</button>
-            # 1. Clone the official Assignment 1 repository
-            git clone https://github.com/volethanhtrieu/DL_Assignment-01.git
-            cd DL_Assignment-01
+            <pre class="code-block"><code># 1. Clone the official Assignment 1 repository
+git clone https://github.com/volethanhtrieu/DL_Assignment-01.git
+cd DL_Assignment-01
 
-            # 2. Install frozen dependencies
-            pip install -r requirements.txt
+# 2. Create and activate virtual environment (optional but recommended)
+python -m venv .venv
+source .venv/bin/activate        # On Windows: .venv\Scripts\activate
 
-            # 3. Train all models under the identical seed (or load saved checkpoints)
-            python train.py --model linear --seed 42
-            python train.py --model mlp --seed 42
-            python train.py --model cnn --seed 42
-            python train.py --model lstm --seed 42
-            python train.py --model vit --seed 42
+# 3. Install frozen dependencies
+pip install -r requirements.txt
 
-            # 4. Evaluate on the official test set and generate all report figures
-            python evaluate.py --model cnn --checkpoint checkpoints/cnn_best.pt --generate-cm
+# 4. Generate all 5 EDA figures
+python generate_eda_graphs.py
+
+# 5. Train all M1 models under identical seed (Linear, MLP, CNN)
+python train.py --model all --epochs 10 --batch_size 64 --lr 0.001
+
+# Or train models individually:
+python train.py --model linear --epochs 10
+python train.py --model mlp    --epochs 10
+python train.py --model cnn    --epochs 10</code></pre>
           </div>
         </section>
 
@@ -2545,12 +2576,21 @@
 
     // Copy to clipboard helper
     function copyCode(btn) {
-      const pre = btn.parentElement;
-      const text = pre.innerText.replace('Copy', '').trim();
+      const container = btn.parentElement;
+      const codeElem = container.querySelector('code') || container.querySelector('pre') || container;
+      const clone = codeElem.cloneNode(true);
+      const btnInClone = clone.querySelector('.copy-btn');
+      if (btnInClone) btnInClone.remove();
+      const text = clone.innerText.trim();
       navigator.clipboard.writeText(text).then(() => {
+        const origText = btn.innerText;
         btn.innerText = 'Copied!';
+        btn.style.background = '#059669';
+        btn.style.borderColor = '#10b981';
         setTimeout(() => {
-          btn.innerText = 'Copy';
+          btn.innerText = origText;
+          btn.style.background = '';
+          btn.style.borderColor = '';
         }, 2000);
       });
     }
