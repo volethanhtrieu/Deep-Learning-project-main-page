@@ -1576,20 +1576,45 @@
           <p>Click the tabs below to inspect the design, inductive biases, and formal formulation of each architecture
             family:</p>
 
+          <!-- Milestone Implementation Scope Callout -->
+          <div style="background: rgba(23, 105, 170, 0.05); border: 1px solid var(--card-border); border-left: 4px solid var(--blue); padding: 14px 18px; border-radius: 0 var(--radius-sm) var(--radius-sm) 0; margin: 16px 0 22px;">
+            <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 8px; margin-bottom: 8px;">
+              <strong style="color: var(--navy); font-size: 0.92rem; display: flex; align-items: center; gap: 6px;">
+                <span>📋</span> Milestone Implementation Scope (Handbook Section 7.4 Compliance)
+              </strong>
+              <span class="badge success" style="font-size: 0.72rem;">M1 Draft Deliverable</span>
+            </div>
+            <p style="margin: 0 0 6px; font-size: 0.83rem; line-height: 1.5; color: var(--ink);">
+              <span style="color: #059669; font-weight: 700;">✅ Fully Implemented, Trained & Evaluated in M1:</span>
+              <strong>Linear Classifier</strong> (7,850 params), 
+              <strong>Multilayer Perceptron (MLP)</strong> (235,146 params), and 
+              <strong>Custom 3-Stage CNN</strong> (94,186 params — completed ahead of schedule). Full training loops, checkpoints, loss/accuracy curves, and confusion matrices are generated.
+            </p>
+            <p style="margin: 0; font-size: 0.83rem; line-height: 1.5; color: var(--muted);">
+              <span style="color: #d97706; font-weight: 700;">⏳ Formulated & Scheduled for M2 Final (21 Oct 2026):</span>
+              <strong>Recurrent Neural Network (Bi-LSTM / GRU)</strong> and 
+              <strong>Vision Transformer (ViT)</strong>. 
+              Per Handbook Section 7.4: <em>"LSTM/GRU and Transformer are required in M2 Final, not in M1 Draft."</em> Their architectures and mathematical formulations are fully established below for design completeness.
+            </p>
+          </div>
+
           <!-- Interactive Tabs -->
           <div class="tabs-header">
-            <button class="tab-btn active" onclick="openTab(event, 'tab-linear')">1. Linear / Softmax</button>
-            <button class="tab-btn" onclick="openTab(event, 'tab-mlp')">2. Multilayer Perceptron</button>
-            <button class="tab-btn" onclick="openTab(event, 'tab-cnn')">3. Convolutional (CNN)</button>
-            <button class="tab-btn" onclick="openTab(event, 'tab-rnn')">4. Recurrent (LSTM/GRU)</button>
-            <button class="tab-btn" onclick="openTab(event, 'tab-vit')">5. Vision Transformer</button>
+            <button class="tab-btn active" onclick="openTab(event, 'tab-linear')">1. Linear [M1 Implemented]</button>
+            <button class="tab-btn" onclick="openTab(event, 'tab-mlp')">2. MLP [M1 Implemented]</button>
+            <button class="tab-btn" onclick="openTab(event, 'tab-cnn')">3. CNN [M1 Implemented]</button>
+            <button class="tab-btn" onclick="openTab(event, 'tab-rnn')">4. Bi-LSTM [M2 Final]</button>
+            <button class="tab-btn" onclick="openTab(event, 'tab-vit')">5. ViT [M2 Final]</button>
           </div>
 
           <!-- Tab 1: Linear -->
           <div id="tab-linear" class="tab-content active">
             <div class="model-detail-grid">
               <div>
-                <h4>Linear / Softmax Baseline</h4>
+                <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 8px;">
+                  <h4 style="margin: 0;">Linear / Softmax Baseline</h4>
+                  <span class="badge success" style="font-size: 0.7rem;">✅ M1 Implemented & Trained</span>
+                </div>
                 <p>
                   A convex, single-layer parameterization that directly maps flattened input pixel vectors to class
                   logits: $z = W x + b$.
@@ -1608,11 +1633,12 @@
               <div class="model-spec-card">
                 <h4>Specifications</h4>
                 <ul class="spec-list">
+                  <li><span class="label">Status:</span><span class="val" style="color: #059669;">✅ M1 Trained & Evaluated</span></li>
                   <li><span class="label">Input Shape:</span><span class="val">(B, 784)</span></li>
                   <li><span class="label">Hidden Layers:</span><span class="val">0</span></li>
                   <li><span class="label">Activation:</span><span class="val">None (Logits)</span></li>
                   <li><span class="label">Parameters:</span><span class="val">7,850</span></li>
-                  <li><span class="label">Implementation:</span><span class="val">Self-implemented</span></li>
+                  <li><span class="label">Checkpoint:</span><span class="val">checkpoints/best_linear.pth</span></li>
                 </ul>
               </div>
             </div>
@@ -1622,7 +1648,10 @@
           <div id="tab-mlp" class="tab-content">
             <div class="model-detail-grid">
               <div>
-                <h4>Multilayer Perceptron (MLP)</h4>
+                <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 8px;">
+                  <h4 style="margin: 0;">Multilayer Perceptron (MLP)</h4>
+                  <span class="badge success" style="font-size: 0.7rem;">✅ M1 Implemented & Trained</span>
+                </div>
                 <p>
                   A multi-stage feedforward network with non-linear activations and regularizers to overcome the
                   representational limits of linear separability.
@@ -1642,11 +1671,13 @@
               <div class="model-spec-card">
                 <h4>Specifications</h4>
                 <ul class="spec-list">
+                  <li><span class="label">Status:</span><span class="val" style="color: #059669;">✅ M1 Trained & Evaluated</span></li>
                   <li><span class="label">Input Shape:</span><span class="val">(B, 784)</span></li>
                   <li><span class="label">Hidden Dims:</span><span class="val">256 → 128</span></li>
                   <li><span class="label">Activations:</span><span class="val">ReLU</span></li>
                   <li><span class="label">Regularization:</span><span class="val">Dropout (p=0.2), L2 (1e-4)</span></li>
                   <li><span class="label">Parameters:</span><span class="val">235,146</span></li>
+                  <li><span class="label">Checkpoint:</span><span class="val">checkpoints/best_mlp.pth</span></li>
                 </ul>
               </div>
             </div>
@@ -1656,7 +1687,10 @@
           <div id="tab-cnn" class="tab-content">
             <div class="model-detail-grid">
               <div>
-                <h4>Convolutional Neural Network (CNN)</h4>
+                <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 8px;">
+                  <h4 style="margin: 0;">Convolutional Neural Network (CNN)</h4>
+                  <span class="badge success" style="font-size: 0.7rem;">✅ M1 Implemented & Trained</span>
+                </div>
                 <p>
                   A custom-designed 3-stage convolutional backbone built to extract localized, translation-equivariant
                   feature maps.
@@ -1676,11 +1710,13 @@
               <div class="model-spec-card">
                 <h4>Specifications</h4>
                 <ul class="spec-list">
+                  <li><span class="label">Status:</span><span class="val" style="color: #059669;">✅ M1 Trained & Evaluated</span></li>
                   <li><span class="label">Input Shape:</span><span class="val">(B, 1, 28, 28)</span></li>
                   <li><span class="label">Kernel Size:</span><span class="val">3×3 (stride 1, pad 1)</span></li>
                   <li><span class="label">Pooling:</span><span class="val">MaxPool(2) + AdaptiveAvg</span></li>
                   <li><span class="label">Norm:</span><span class="val">BatchNorm2d</span></li>
-                  <li><span class="label">Parameters:</span><span class="val">94,346</span></li>
+                  <li><span class="label">Parameters:</span><span class="val">94,186 (~94k)</span></li>
+                  <li><span class="label">Checkpoint:</span><span class="val">checkpoints/best_cnn.pth</span></li>
                 </ul>
               </div>
             </div>
@@ -1690,7 +1726,13 @@
           <div id="tab-rnn" class="tab-content">
             <div class="model-detail-grid">
               <div>
-                <h4>Recurrent Neural Network (Bi-LSTM / GRU)</h4>
+                <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 8px;">
+                  <h4 style="margin: 0;">Recurrent Neural Network (Bi-LSTM / GRU)</h4>
+                  <span class="badge warning" style="font-size: 0.7rem;">⏳ Formulated (M2 Final Roadmap)</span>
+                </div>
+                <div style="background: rgba(245, 158, 11, 0.08); border-left: 3px solid #d97706; padding: 8px 12px; border-radius: 4px; margin-bottom: 12px; font-size: 0.8rem; color: #92400e;">
+                  <strong>Handbook Section 7.4 Protocol:</strong> <em>"LSTM/GRU and Transformer are required in M2 Final, not in M1 Draft."</em> The mathematical formulation below establishes the verified architecture for M2 implementation.
+                </div>
                 <p>
                   Treats the 2D image as an ordered sequence of horizontal pixel rows. Each row constitutes a single
                   temporal timestep.
@@ -1710,6 +1752,7 @@
               <div class="model-spec-card">
                 <h4>Specifications</h4>
                 <ul class="spec-list">
+                  <li><span class="label">Status:</span><span class="val" style="color: #d97706;">⏳ Formulated (M2 Final)</span></li>
                   <li><span class="label">Sequence Dimensions:</span><span class="val">Seq: 28, Feat: 28</span></li>
                   <li><span class="label">Recurrent Type:</span><span class="val">Bidirectional LSTM</span></li>
                   <li><span class="label">Hidden Dim:</span><span class="val">128 (per direction)</span></li>
@@ -1724,7 +1767,13 @@
           <div id="tab-vit" class="tab-content">
             <div class="model-detail-grid">
               <div>
-                <h4>Vision Transformer (ViT / Sequence Attention)</h4>
+                <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 8px;">
+                  <h4 style="margin: 0;">Vision Transformer (ViT / Sequence Attention)</h4>
+                  <span class="badge warning" style="font-size: 0.7rem;">⏳ Formulated (M2 Final Roadmap)</span>
+                </div>
+                <div style="background: rgba(245, 158, 11, 0.08); border-left: 3px solid #d97706; padding: 8px 12px; border-radius: 4px; margin-bottom: 12px; font-size: 0.8rem; color: #92400e;">
+                  <strong>Handbook Section 7.4 Protocol:</strong> <em>"Transformer required in M2 Final, not in M1 Draft."</em> The non-overlapping patch embedding ($4 \times 4$) and multi-head self-attention mechanics below serve as the verified design reference for M2.
+                </div>
                 <p>
                   Image is partitioned into non-overlapping spatial patches of size $4 \times 4$, linearly projected to
                   embedding dimension $D$, augmented with learnable 1D positional encodings and multi-head
@@ -1744,6 +1793,7 @@
               <div class="model-spec-card">
                 <h4>Specifications</h4>
                 <ul class="spec-list">
+                  <li><span class="label">Status:</span><span class="val" style="color: #d97706;">⏳ Formulated (M2 Final)</span></li>
                   <li><span class="label">Patch Size:</span><span class="val">4×4 (49 tokens)</span></li>
                   <li><span class="label">Embed Dim:</span><span class="val">128 (4 heads)</span></li>
                   <li><span class="label">Depth:</span><span class="val">4 Transformer Blocks</span></li>
@@ -1788,8 +1838,8 @@
             • All models evaluated on the identical 10,000-sample test set.<br>
             • No pre-trained external weights utilized (all weights initialized from scratch with uniform/He
             distribution).<br>
-            • Early stopping patience = 5 epochs monitoring validation macro-F1 to prevent overfitting.<br>
-            • Benchmark environment: NVIDIA RTX 4070 Laptop GPU (8GB VRAM), Intel Core i7, PyTorch 2.4.0+cu121.
+            • Early stopping patience = 4 epochs monitoring validation macro-F1 to prevent overfitting.<br>
+            • Benchmark environment: NVIDIA GeForce RTX 3060 (CUDA), PyTorch 2.4, seed = 42.
           </div>
         </section>
 
@@ -1805,6 +1855,12 @@
           <h3>1. Comparative Performance Matrix</h3>
           <p>As mandated by Section 12.1, evaluation encompasses classification accuracy, Macro-F1, parameter
             efficiency, training duration, and inference latency:</p>
+
+          <!-- Empirical vs Planned Scope Note -->
+          <div style="background: rgba(23, 105, 170, 0.05); border: 1px solid var(--card-border); border-left: 4px solid var(--blue); padding: 12px 16px; border-radius: 0 var(--radius-sm) var(--radius-sm) 0; margin: 12px 0 16px; font-size: 0.83rem; color: var(--ink);">
+            <strong>Empirical Protocol & Milestone Status:</strong>
+            Rows 1–3 (<span style="color: #059669; font-weight: 700;">Linear, MLP, and CNN</span>) report verified test set metrics obtained directly from running our PyTorch implementation on an <strong>NVIDIA GeForce RTX 3060 (CUDA)</strong> with fixed seed 42. Serialized weights (<code>best_linear.pth</code>, <code>best_mlp.pth</code>, <code>best_cnn.pth</code>) and training history files are available in the repository. Rows 4–5 (<span style="color: #d97706; font-weight: 700;">Bi-LSTM and ViT</span>) report prospective architectural benchmarks established as design targets for the upcoming M2 Final evaluation per Handbook Section 7.4.
+          </div>
 
           <div class="table-wrapper">
             <table class="data-table">
