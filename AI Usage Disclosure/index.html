@@ -212,6 +212,28 @@
       line-height: 1.65;
     }
 
+    .disclosure-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      margin-top: 18px;
+      padding: 10px 16px;
+      border-radius: 12px;
+      color: var(--white);
+      background: linear-gradient(135deg, var(--navy), var(--blue));
+      font-size: 0.82rem;
+      font-weight: 800;
+      text-decoration: none;
+      transition: all 180ms ease;
+    }
+
+    .disclosure-btn:hover {
+      background: linear-gradient(135deg, var(--blue), var(--cyan));
+      transform: translateY(-2px);
+      color: var(--white);
+    }
+
     .placeholder {
       padding: 32px;
       border: 1px dashed rgba(23, 105, 170, 0.35);
@@ -285,17 +307,32 @@
           <article class="disclosure-card">
             <div class="card-number" aria-hidden="true">01</div>
             <h3>Assignment 01</h3>
-            <p>AI usage details will be added here.</p>
+            <p><strong>Sole Author: Hoàng Trọng Huy Minh (2452743)</strong></p>
+            <p style="margin-top: 8px;">Comprehensive 9-field disclosure log covering pipeline construction, 5-model implementations, validation loops, and 20-page LaTeX report.</p>
+            <a class="disclosure-btn" href="https://github.com/volethanhtrieu/DL_Assignment-01/blob/main/AI_USAGE.md" target="_blank" rel="noopener noreferrer">
+              <span>View AI_USAGE.md</span>
+              <span aria-hidden="true">↗</span>
+            </a>
           </article>
           <article class="disclosure-card">
             <div class="card-number" aria-hidden="true">02</div>
             <h3>Assignment 02</h3>
-            <p>AI usage details will be added here.</p>
+            <p><strong>Primary Lead: Võ Lê Thành Triệu (2453297)</strong></p>
+            <p style="margin-top: 8px;">Disclosure log covering task track selection, dataset proposal, fine-tuning pretrained vision/language backbones, and controlled factor ablations.</p>
+            <a class="disclosure-btn" href="../assignment-02/AI_USAGE.md" target="_blank" rel="noopener noreferrer">
+              <span>View AI_USAGE.md</span>
+              <span aria-hidden="true">↗</span>
+            </a>
           </article>
           <article class="disclosure-card">
             <div class="card-number" aria-hidden="true">03</div>
             <h3>Assignment 03</h3>
-            <p>AI usage details will be added here.</p>
+            <p><strong>Primary Lead: Nguyễn Huỳnh Nam Quốc (2453089)</strong></p>
+            <p style="margin-top: 8px;">Disclosure log covering cross-modal alignment, unimodal baselines, early/intermediate/late fusion architectures, and modality ablation analysis.</p>
+            <a class="disclosure-btn" href="../assignment-03/AI_USAGE.md" target="_blank" rel="noopener noreferrer">
+              <span>View AI_USAGE.md</span>
+              <span aria-hidden="true">↗</span>
+            </a>
           </article>
         </div>
       </section>
