@@ -514,7 +514,7 @@
       background: rgba(23, 105, 170, 0.09);
     }
 
-    /* AI Disclosure 3-Card Grid & Banner */
+    /* AI Disclosure 3-Box Interactive Grid */
     .disclosure-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -522,52 +522,76 @@
       margin-bottom: 24px;
     }
 
-    .disclosure-card {
+    .disclosure-box {
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      min-height: 330px;
-      padding: 28px;
+      min-height: 310px;
+      padding: 26px;
       border: 1px solid var(--line);
       border-radius: 24px;
-      background: rgba(255, 255, 255, 0.82);
-      box-shadow: 0 14px 38px rgba(11, 42, 74, 0.07);
+      background: rgba(255, 255, 255, 0.78);
+      box-shadow: 0 14px 38px rgba(11, 42, 74, 0.06);
       backdrop-filter: blur(12px);
       -webkit-backdrop-filter: blur(12px);
+      text-decoration: none;
+      color: inherit;
       transition: transform 220ms cubic-bezier(0.16, 1, 0.3, 1), border-color 220ms ease, box-shadow 220ms ease;
+      position: relative;
+      overflow: hidden;
     }
 
-    .disclosure-card:hover {
+    .disclosure-box:hover {
       transform: translateY(-5px);
-      border-color: rgba(23, 105, 170, 0.38);
+      border-color: rgba(23, 105, 170, 0.4);
       box-shadow: 0 22px 54px rgba(11, 42, 74, 0.14);
+      color: inherit;
     }
 
-    .disclosure-card-top {
+    .box-top {
       display: flex;
       align-items: center;
       justify-content: space-between;
       margin-bottom: 18px;
     }
 
-    .card-num {
+    .box-num {
       display: grid;
       place-items: center;
-      width: 44px;
-      height: 44px;
-      border-radius: 13px;
+      width: 42px;
+      height: 42px;
+      border-radius: 12px;
       color: var(--white);
       background: linear-gradient(135deg, var(--blue), var(--cyan));
       font-weight: 850;
-      font-size: 0.95rem;
-      box-shadow: 0 8px 18px rgba(23, 105, 170, 0.25);
+      font-size: 0.92rem;
+      box-shadow: 0 8px 18px rgba(23, 105, 170, 0.22);
+    }
+
+    .box-arrow {
+      display: grid;
+      place-items: center;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      color: var(--blue);
+      background: rgba(23, 105, 170, 0.08);
+      font-size: 1rem;
+      font-weight: 800;
+      transition: all 180ms ease;
+    }
+
+    .disclosure-box:hover .box-arrow {
+      background: var(--blue);
+      color: var(--white);
+      transform: translate(2px, -2px);
     }
 
     .badge-status {
       display: inline-flex;
       align-items: center;
-      gap: 6px;
-      padding: 5px 12px;
+      gap: 5px;
+      padding: 4px 10px;
       border-radius: 999px;
       font-size: 0.72rem;
       font-weight: 750;
@@ -593,83 +617,64 @@
       border: 1px solid rgba(139, 92, 246, 0.25);
     }
 
-    .disclosure-card h3 {
-      margin: 0 0 6px;
+    .box-kicker {
+      display: block;
+      margin-bottom: 4px;
+      color: var(--blue);
+      font-size: 0.76rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .box-title {
+      margin: 0 0 8px;
       color: var(--navy);
-      font-size: 1.35rem;
+      font-size: 1.3rem;
       font-weight: 850;
       letter-spacing: -0.03em;
     }
 
-    .disclosure-topic {
-      margin: 0 0 8px;
-      color: var(--blue);
+    .box-file {
+      display: inline-block;
+      margin-bottom: 12px;
+      padding: 3px 8px;
+      border-radius: 6px;
+      background: rgba(11, 42, 74, 0.06);
+      color: var(--ink);
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      font-size: 0.75rem;
+      font-weight: 600;
+    }
+
+    .box-author {
+      margin: 0 0 10px;
+      color: var(--navy);
+      font-size: 0.8rem;
+      font-weight: 750;
+    }
+
+    .box-desc {
+      margin: 0 0 18px;
+      color: var(--muted);
       font-size: 0.86rem;
-      font-weight: 700;
+      line-height: 1.6;
     }
 
-    .disclosure-author {
-      margin: 0 0 14px;
-      color: var(--muted);
-      font-size: 0.76rem;
-      font-weight: 700;
-      letter-spacing: 0.05em;
-      text-transform: uppercase;
-    }
-
-    .disclosure-desc {
-      flex: 1;
-      margin: 0 0 20px;
-      color: var(--muted);
-      font-size: 0.88rem;
-      line-height: 1.65;
-    }
-
-    .disclosure-card-btn {
+    .box-cta {
       display: inline-flex;
       align-items: center;
-      justify-content: space-between;
-      gap: 10px;
-      padding: 12px 18px;
-      border-radius: 14px;
-      color: var(--white);
-      background: linear-gradient(135deg, var(--navy), var(--blue));
-      font-size: 0.85rem;
-      font-weight: 800;
-      text-decoration: none;
-      box-shadow: 0 6px 18px rgba(11, 42, 74, 0.15);
-      transition: all 180ms ease;
-    }
-
-    .disclosure-card-btn:hover {
-      background: linear-gradient(135deg, var(--blue), var(--cyan));
-      box-shadow: 0 8px 24px rgba(23, 105, 170, 0.3);
-      transform: translateY(-2px);
-      color: var(--white);
-    }
-
-    .disclosure-card-btn .btn-arrow {
-      font-size: 0.95rem;
-      transition: transform 180ms ease;
-    }
-
-    .disclosure-card-btn:hover .btn-arrow {
-      transform: translate(2px, -2px);
-    }
-
-    .disclosure-sublink {
-      display: block;
-      margin-top: 10px;
-      font-size: 0.78rem;
-      font-weight: 700;
+      gap: 6px;
+      margin-top: auto;
       color: var(--blue);
-      text-align: center;
-      transition: color 160ms ease;
+      font-size: 0.84rem;
+      font-weight: 800;
+      transition: color 160ms ease, gap 160ms ease;
     }
 
-    .disclosure-sublink:hover {
+    .disclosure-box:hover .box-cta {
       color: var(--cyan);
-      text-decoration: underline;
+      gap: 9px;
     }
 
     .disclosure-banner {
@@ -899,95 +904,89 @@
         </div>
 
         <div class="disclosure-grid">
-          <!-- Card 1: Assignment 01 -->
-          <article class="disclosure-card">
+          <!-- Box 1: Assignment 01 -->
+          <a
+            class="disclosure-box"
+            href="https://github.com/volethanhtrieu/Deep-Learning-project-main-page/blob/main/AI%20Usage%20Disclosure/AI_usage_assignment_01.md"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Open Assignment 01 AI Usage Disclosure on GitHub"
+          >
             <div>
-              <div class="disclosure-card-top">
-                <div class="card-num" aria-hidden="true">01</div>
+              <div class="box-top">
+                <div class="box-num" aria-hidden="true">01</div>
                 <span class="badge-status complete">● Verified</span>
+                <span class="box-arrow" aria-hidden="true">↗</span>
               </div>
-              <h3>Assignment 01</h3>
-              <p class="disclosure-topic">Foundations of Pipelines & Architectures</p>
-              <p class="disclosure-author">Sole Author: Hoàng Trọng Huy Minh (2452743)</p>
-              <p class="disclosure-desc">
-                Full 9-field disclosure logging pipeline design, 5 model architectures (Linear, MLP, CNN, Bi-LSTM, ViT), early stopping logic, and 20-page LaTeX report. Fully verified against PyTorch docs and local GPU test runs.
+              <span class="box-kicker">Assignment 01</span>
+              <h3 class="box-title">AI Usage Disclosure</h3>
+              <span class="box-file">AI_usage_assignment_01.md</span>
+              <p class="box-author">Author: Hoàng Trọng Huy Minh (2452743)</p>
+              <p class="box-desc">
+                Complete 9-field disclosure log covering pipeline construction, 5-model implementations (Linear, MLP, CNN, Bi-LSTM, ViT), CUDA latency profiling, and 20-page LaTeX report.
               </p>
             </div>
-            <div>
-              <a
-                class="disclosure-card-btn"
-                href="https://github.com/volethanhtrieu/DL_Assignment-01/blob/main/AI_USAGE.md"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <span>View A1 AI_USAGE.md</span>
-                <span class="btn-arrow" aria-hidden="true">↗</span>
-              </a>
-              <a class="disclosure-sublink" href="./assignment-01/index.html#ai-disclosure">
-                Interactive Webpage Disclosure →
-              </a>
+            <div class="box-cta">
+              <span>View GitHub Disclosure</span>
+              <span aria-hidden="true">→</span>
             </div>
-          </article>
+          </a>
 
-          <!-- Card 2: Assignment 02 -->
-          <article class="disclosure-card">
+          <!-- Box 2: Assignment 02 -->
+          <a
+            class="disclosure-box"
+            href="https://github.com/volethanhtrieu/Deep-Learning-project-main-page/blob/main/AI%20Usage%20Disclosure/AI_usage_assignment_02.md"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Open Assignment 02 AI Usage Disclosure on GitHub"
+          >
             <div>
-              <div class="disclosure-card-top">
-                <div class="card-num" aria-hidden="true">02</div>
+              <div class="box-top">
+                <div class="box-num" aria-hidden="true">02</div>
                 <span class="badge-status in-progress">● In Progress</span>
+                <span class="box-arrow" aria-hidden="true">↗</span>
               </div>
-              <h3>Assignment 02</h3>
-              <p class="disclosure-topic">Large-Scale Data & Specialized Tasks</p>
-              <p class="disclosure-author">Primary Lead: Võ Lê Thành Triệu (2453297)</p>
-              <p class="disclosure-desc">
-                Disclosure framework tracking task selection, dataset proposal verification, baseline construction, fine-tuning pretrained vision/language backbones, and controlled factor ablations.
+              <span class="box-kicker">Assignment 02</span>
+              <h3 class="box-title">AI Usage Disclosure</h3>
+              <span class="box-file">AI_usage_assignment_02.md</span>
+              <p class="box-author">Lead: Võ Lê Thành Triệu (2453297)</p>
+              <p class="box-desc">
+                Section 5 disclosure framework tracking dataset proposal approval, specialized task backbones, baseline construction, and fine-tuning protocols.
               </p>
             </div>
-            <div>
-              <a
-                class="disclosure-card-btn"
-                href="https://github.com/volethanhtrieu/Deep-Learning-project-main-page/blob/main/assignment-02/AI_USAGE.md"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <span>View A2 AI_USAGE.md</span>
-                <span class="btn-arrow" aria-hidden="true">↗</span>
-              </a>
-              <a class="disclosure-sublink" href="./assignment-02/index.html">
-                Assignment 02 Portal →
-              </a>
+            <div class="box-cta">
+              <span>View GitHub Disclosure</span>
+              <span aria-hidden="true">→</span>
             </div>
-          </article>
+          </a>
 
-          <!-- Card 3: Assignment 03 -->
-          <article class="disclosure-card">
+          <!-- Box 3: Assignment 03 -->
+          <a
+            class="disclosure-box"
+            href="https://github.com/volethanhtrieu/Deep-Learning-project-main-page/blob/main/AI%20Usage%20Disclosure/AI_usage_assignment_03.md"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Open Assignment 03 AI Usage Disclosure on GitHub"
+          >
             <div>
-              <div class="disclosure-card-top">
-                <div class="card-num" aria-hidden="true">03</div>
+              <div class="box-top">
+                <div class="box-num" aria-hidden="true">03</div>
                 <span class="badge-status upcoming">● Upcoming</span>
+                <span class="box-arrow" aria-hidden="true">↗</span>
               </div>
-              <h3>Assignment 03</h3>
-              <p class="disclosure-topic">Multimodal Deep Learning & Fusion</p>
-              <p class="disclosure-author">Primary Lead: Nguyễn Huỳnh Nam Quốc (2453089)</p>
-              <p class="disclosure-desc">
-                Disclosure framework logging cross-modal dataset alignment, unimodal baselines, early/intermediate/late fusion architectures, and modality ablation analysis.
+              <span class="box-kicker">Assignment 03</span>
+              <h3 class="box-title">AI Usage Disclosure</h3>
+              <span class="box-file">AI_usage_assignment_03.md</span>
+              <p class="box-author">Lead: Nguyễn Huỳnh Nam Quốc (2453089)</p>
+              <p class="box-desc">
+                Section 5 disclosure framework tracking multimodal pair alignment, unimodal baselines, early/intermediate/late fusion architectures, and modality ablation analysis.
               </p>
             </div>
-            <div>
-              <a
-                class="disclosure-card-btn"
-                href="https://github.com/volethanhtrieu/Deep-Learning-project-main-page/blob/main/assignment-03/AI_USAGE.md"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <span>View A3 AI_USAGE.md</span>
-                <span class="btn-arrow" aria-hidden="true">↗</span>
-              </a>
-              <a class="disclosure-sublink" href="./assignment-03/index.html">
-                Assignment 03 Portal →
-              </a>
+            <div class="box-cta">
+              <span>View GitHub Disclosure</span>
+              <span aria-hidden="true">→</span>
             </div>
-          </article>
+          </a>
         </div>
 
         <div class="disclosure-banner">
