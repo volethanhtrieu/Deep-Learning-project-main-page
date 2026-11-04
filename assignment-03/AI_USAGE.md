@@ -1,41 +1,29 @@
-# Academic Integrity & Generative AI Usage Disclosure
-## CO3133: Deep Learning and Its Applications — Assignment 03 (Semester 261)
-### Group Goat — Multimodal Deep Learning: Representation, Fusion, and Evaluation
+# Assignment 3 AI Usage Disclosure
 
----
+Group Goat - CO3133, Semester 261. Recorded 4 November 2026. Scope: M1 only.
 
-## 📋 Course Policy Compliance Statement
+## Observed use
 
-In compliance with **Section 5 of the Course Project Handbook** (*"Academic Integrity and Generative AI Policies"*), this document transparently logs all generative AI tools used across coding, verification, and documentation for Assignment 3.
+| Handbook Section 5.2 field | Evidence-based record |
+|---|---|
+| Tool name and version/model | **ChatGPT Work with the Codex assistant** in this conversation. No independently verified underlying model/build identifier is available; no specific GPT version or separate IDE/CLI/Copilot use is asserted. |
+| Member who used it | **Nguyễn Huỳnh Nam Quốc (2453089)**, confirmed by the requester during proposal preparation. Other members' AI use is not attested here. |
+| Time or stage | 4 November 2026: M1 dataset research, validation/remediation assistance, proposal preparation and publication maintenance. |
+| Purpose | Source/handbook inspection, audit and split scripts, evidence interpretation, English drafting, document rendering, GitHub/Pages maintenance and checks. No model training or inference experiment. |
+| Affected work | M1 proposal DOCX/PDF; dataset provenance, EDA and split records; validation/replay scripts; README; A3 page; landing-page A3 entries; this disclosure and publication checklist. |
+| Representative prompt | See [representative prompt summaries](https://github.com/volethanhtrieu/DL_Assignment-03/blob/main/docs/m1/PROMPT_LOG.md). These summarize actual requests; they are not a fabricated verbatim transcript. |
+| Editing and verification | The assistant executed the earlier data checks and document checks, reviewed source records, rendered proposal pages and checked counts/hashes. Publication-specific tests and remote outcomes are recorded in [PUBLICATION_CHECKLIST.md](https://github.com/volethanhtrieu/DL_Assignment-03/blob/main/docs/m1/PUBLICATION_CHECKLIST.md). A prepared file, commit or passing local check is not evidence of successful deployment. |
+| Member responsible for final verification | **Nguyễn Huỳnh Nam Quốc**, Assignment 3 lead. Completed independent student review/understanding is **not attested** by the assistant. No student signature or approval is generated. |
+| Verification sources | Handbook Part I, Sections 7.6 and 24-32; pinned QCRI and mirror sources; immutable source/manifest hashes; existing validation/remediation reports; original papers and official encoder documentation linked in the proposal and [DATASET.md](https://github.com/volethanhtrieu/DL_Assignment-03/blob/main/docs/m1/DATASET.md). |
 
-All interactions are conducted, scrutinized, and validated by **Nguyễn Huỳnh Nam Quốc (Student ID: 2453089)**, who takes primary responsibility for Assignment 3.
+## What the evidence establishes
 
----
+The earlier audit decoded 8,079 source pairs; remediation retained 7,938 (6,001/986/951). It quarantined 7 annotation discrepancies and 9 placeholder records, and filtered 125 lower-priority duplicate/leakage-related records. These are dataset measurements, not model scores. The original agreed-label archive was unavailable (HTTP 403); equivalence is unproved. Human labels were not silently changed.
 
-## 🤖 Detailed AI Interaction Log (Handbook Section 5.2)
+The proposal correction changes only its tool-identification disclosure cell to describe ChatGPT Work/Codex. All other paragraph/cell text, embedded EDA bytes and reference links are preserved. The PDF is regenerated from that corrected DOCX.
 
-| # | Mandatory Field | Milestone 1: Proposal & Multimodal Pair Design | Milestone 2: Unimodal Baselines & Early Fusion | Milestone 3: Advanced Multimodal Model & Ablation |
-| :--- | :--- | :--- | :--- | :--- |
-| **1** | **Tool & Model Name** | *(To be recorded upon milestone execution)* | *(To be recorded upon milestone execution)* | *(To be recorded upon milestone execution)* |
-| **2** | **Who Used It** | Nguyễn Huỳnh Nam Quốc (2453089) | Nguyễn Huỳnh Nam Quốc (2453089) | Nguyễn Huỳnh Nam Quốc (2453089) |
-| **3** | **Development Stage** | M1: Dataset Proposal & Modality Pairing | M2: Unimodal Models & Simple Fusion | M3: Cross-Modal Attention, Ablation & Defense |
-| **4** | **Purpose / Task** | Multimodal task selection, pair-validity audit, leakage-free split unit | Encoder setup (Modality A & B), baseline alignment | Fusion operation, cross-modal ablation, failure analysis |
-| **5** | **Affected Files / Sections** | Multimodal proposal, data loaders | `encoders.py`, `fusion.py`, `train.py` | `evaluate.py`, `Report_Assignment_03.pdf`, Web UI |
-| **6** | **Representative Prompt Example** | *(Prompt logs will be preserved verbatim)* | *(Prompt logs will be preserved verbatim)* | *(Prompt logs will be preserved verbatim)* |
-| **7** | **AI Contribution** | *(Modality alignment / architecture design)* | *(Feature projection & fusion code)* | *(Ablation table formatting & script review)* |
-| **8** | **Student Verification** | *(Audit paired entity/timestamp consistency)* | *(Baseline vs fusion performance verification)* | *(Cross-modal ablation & failure mode audit)* |
-| **9** | **Sources Used for Verification** | Multimodal literature & PyTorch docs | Multimodal foundation papers (CLIP, etc.) | Course handbook Section 29–31 rubric |
+## Limits and responsibilities
 
----
+M2/M3 encoder training, fusion experiments, ablations, model metrics, checkpoints, slides and video are **planned, not completed**. The prior repository disclosure was a planning template; its prospective file/model names and blanket student-verification statement are not treated as evidence of executed work.
 
-## ✍️ Academic Honor & Integrity Declaration
-
-> **Student Declaration (Section 5.5):**  
-> I, **Nguyễn Huỳnh Nam Quốc** (Student ID: **2453089**), solemnly declare that:
-> 1. I am responsible for code, experiments, analysis, model checkpoints, and reports submitted for Assignment 3.
-> 2. Generative AI will be employed strictly as an intelligent programming assistant and productivity tool under active human supervision, critical code review, and empirical verification.
-> 3. No data, experimental results, model checkpoints, parameter counts, or citations will be fabricated. All reported numbers reflect authentic training and evaluation runs.
-> 4. I will fully understand, explain, and take academic responsibility for every line of code, formula, and narrative included in this project.
->
-> **Student Signature:** *Nguyễn Huỳnh Nam Quốc*  
-> **Date:** October 2026
+The group reports that prior dataset approval was waived for this group. No formal approval status is claimed. Students retain responsibility for understanding, correcting and verifying submitted material. LMS submission and completed student review are not asserted by this log. No additional AI providers or model versions are inferred from templates.

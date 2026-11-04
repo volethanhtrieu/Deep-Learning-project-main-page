@@ -88,9 +88,22 @@ Faculty of Computer Science and Engineering
 
 ---
 
+## Assignment 3 M1 materials
+
+Dataset Proposal for **CrisisMMD v2.0**, primary **7,938 pairs (6,001/986/951)**. Model training has not started; M2/M3 results are planned. Prior approval is waived as reported by the group; no formal approval is asserted.
+
+- [A3 assignment page](https://volethanhtrieu.github.io/Deep-Learning-project-main-page/assignment-03/index.html)
+- [Proposal PDF](assignment-03/docs/m1/CO3133_A3_M1_GroupGoat_Dataset_Proposal.pdf) / [Word](assignment-03/docs/m1/CO3133_A3_M1_GroupGoat_Dataset_Proposal.docx)
+- [Source, provenance, split records and replay script](https://github.com/volethanhtrieu/DL_Assignment-03)
+- [Publication verification checklist](https://github.com/volethanhtrieu/DL_Assignment-03/blob/main/docs/m1/PUBLICATION_CHECKLIST.md)
+
+Actual publication/deployment verification is recorded in the linked checklist; a prepared package does not establish successful deployment. Raw datasets are not mirrored here.
+
+---
+
 ## AI Usage Disclosure
 
-This section will summarize the use of AI tools across the course projects.
+Assignment 3 M1 records actual **ChatGPT Work/Codex** assistance, with the underlying model/build unverified and student final review not attested. [A3 detailed log](AI%20Usage%20Disclosure/AI_usage_assignment_03.md). Existing A1/A2 records are unchanged.
 
 [**Open AI Usage Disclosure →**](https://github.com/volethanhtrieu/Deep-Learning-project-main-page/tree/main/AI%20Usage%20Disclosure)
 
