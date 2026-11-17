@@ -101,6 +101,14 @@ Actual publication/deployment verification is recorded in the linked checklist; 
 
 ---
 
+## Assignment 3 M2 real development results
+
+The M2 draft has 9 real development runs (image-only, text-only and concatenation × seeds 42/43/44). Locked `filtered_original` remains 6,001/986/951. Mean dev macro-F1: image 0.5746 ± 0.0068; text 0.6811 ± 0.0016; concat **0.8116 ± 0.0041**. No held-out test or M3 improvements are claimed.
+
+- [M2 scientific PDF](assignment-03/docs/m2/CO3133_Assignment%203_M2_Report.pdf) and [LaTeX source](assignment-03/docs/m2/CO3133_Assignment%203_M2_Report.tex).
+- [M2 development metrics](assignment-03/results/m2_dev/DEV_RESULTS.md) and [9-run evidence](https://github.com/volethanhtrieu/DL_Assignment-03/tree/main/artifacts/m2/experiments/primary).
+- [Assignment 3 project page](assignment-03/index.html), including the M2 summary and disclosures.
+
 ## AI Usage Disclosure
 
 Assignment 3 M1 records actual **ChatGPT Work/Codex** assistance, with the underlying model/build unverified and student final review not attested. [A3 detailed log](AI%20Usage%20Disclosure/AI_usage_assignment_03.md). Existing A1/A2 records are unchanged.
