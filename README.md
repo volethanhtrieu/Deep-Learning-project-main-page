@@ -90,10 +90,11 @@ Faculty of Computer Science and Engineering
 
 ## Assignment 3 M1 materials
 
-Dataset Proposal for **CrisisMMD v2.0**, primary **7,938 pairs (6,001/986/951)**. Model training has not started; M2/M3 results are planned. Prior approval is waived as reported by the group; no formal approval is asserted.
+Dataset Proposal for **CrisisMMD v2.0**, primary **7,938 pairs (6,001/986/951)**. This M1 proposal records the pre-training state; M2 development results are published separately and are not part of the M1 PDF. Prior approval is waived as reported by the group; no formal approval is asserted.
 
 - [A3 assignment page](https://volethanhtrieu.github.io/Deep-Learning-project-main-page/assignment-03/index.html)
-- [Proposal PDF](assignment-03/docs/m1/CO3133_A3_M1_GroupGoat_Dataset_Proposal.pdf) / [Word](assignment-03/docs/m1/CO3133_A3_M1_GroupGoat_Dataset_Proposal.docx)
+- **M1 report:** [PDF](assignment-03/docs/m1/CO3133_Assignment%203_M1_Report.pdf) / [LaTeX source](assignment-03/docs/m1/CO3133_Assignment%203_M1_Report.tex)
+- **Original M1 proposal:** [PDF](assignment-03/docs/m1/CO3133_A3_M1_GroupGoat_Dataset_Proposal.pdf) / [Word](assignment-03/docs/m1/CO3133_A3_M1_GroupGoat_Dataset_Proposal.docx)
 - [Source, provenance, split records and replay script](https://github.com/volethanhtrieu/DL_Assignment-03)
 - [Publication verification checklist](https://github.com/volethanhtrieu/DL_Assignment-03/blob/main/docs/m1/PUBLICATION_CHECKLIST.md)
 
