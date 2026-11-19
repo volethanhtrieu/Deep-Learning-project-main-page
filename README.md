@@ -104,11 +104,28 @@ Actual publication/deployment verification is recorded in the linked checklist; 
 
 ## Assignment 3 M2 real development results
 
-The M2 draft has 9 real development runs (image-only, text-only and concatenation × seeds 42/43/44). Locked `filtered_original` remains 6,001/986/951. Mean dev macro-F1: image 0.5746 ± 0.0068; text 0.6811 ± 0.0016; concat **0.8116 ± 0.0041**. No held-out test or M3 improvements are claimed.
+The M2 draft has 9 real development runs (image-only, text-only and concatenation × seeds 42/43/44). Locked `filtered_original` remains 6,001/986/951. Mean dev macro-F1: image 0.5746 ± 0.0068; text 0.6811 ± 0.0016; concat **0.8116 ± 0.0041**. No held-out test evaluation was performed during M2; subsequent M3 results are published separately.
 
 - [M2 scientific PDF](assignment-03/docs/m2/CO3133_Assignment%203_M2_Report.pdf) and [LaTeX source](assignment-03/docs/m2/CO3133_Assignment%203_M2_Report.tex).
 - [M2 development metrics](assignment-03/results/m2_dev/DEV_RESULTS.md) and [9-run evidence](https://github.com/volethanhtrieu/DL_Assignment-03/tree/main/artifacts/m2/experiments/primary).
 - [Assignment 3 project page](assignment-03/index.html), including the M2 summary and disclosures.
+
+## Assignment 3 M3 evaluation
+
+M3 locally completed 15 evaluations (five model configurations across
+three seeds) on the custom filtered_original CrisisMMD protocol.
+
+Test macro-F1 means: image-only 0.6127, text-only 0.6666,
+concatenation 0.7965, fixed gate 0.7869, learned gate 0.7986.
+
+The learned gate's small mean advantage over concatenation is
+not statistically established: paired bootstrap intervals cross zero.
+
+- [M3 public-review report](https://github.com/volethanhtrieu/DL_Assignment-03/blob/main/docs/m3/CO3133_A3_M3_Public_Review.pdf)
+- [M3 source and results](https://github.com/volethanhtrieu/DL_Assignment-03)
+- [Assignment 3 page](assignment-03/index.html)
+
+Video, public Gradio hosting and LMS submission are not claimed complete.
 
 ## AI Usage Disclosure
 

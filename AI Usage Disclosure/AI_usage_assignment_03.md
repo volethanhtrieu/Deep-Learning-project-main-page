@@ -1,5 +1,10 @@
 # Assignment 3 AI Usage Disclosure
 
+**Current status (19 November 2026):** M3 evaluation and public
+repository publication are complete. Statements in the M1 and M2
+sections below describe their historical milestone states.
+The M3 supplement records the later work.
+
 Group Goat - CO3133, Semester 261. Recorded 4 November 2026. Scope: M1 only.
 
 ## Observed use
@@ -47,3 +52,27 @@ This section adds *executed* M2 work to the historical M1 disclosure above. It d
 | Verification sources | M1 `DATASET_LOCK.json`/dataset documentation; pinned QCRI and third-party mirror references; `artifacts/m2/runs/primary/` (nine run JSONs, predictions, trained-head checkpoints), `results/m2_dev/`, `artifacts/m2/feature_metadata.json`, and the CO3133 handbook. |
 
 **Observed M2 outcome (development only):** image-only macro-F1 0.5746 ± 0.0068; text-only 0.6811 ± 0.0016; concatenation 0.8116 ± 0.0041, all means ± sample SD over seeds 42/43/44. No M3 improved model, ablation, or held-out test results are claimed. Original CrisisMMD agreed-label archive equivalence remains unverified. The report uses student-run measurements, not synthetic smoke metrics.
+
+---
+
+## M3 supplement - executed November 2026
+
+| Field | M3 record |
+|---|---|
+| AI tools | ChatGPT / ChatGPT Work assistance. Exact historical underlying model builds are not independently verified. |
+| Responsible member | Nguyen Huynh Nam Quoc (2453089), Assignment 3 contribution 100%; other two members 0%. |
+| Stage | M3 evaluation, ablation, inference benchmarking, qualitative analysis, demo and reporting in November 2026. |
+| Purpose | Assist with Python/PowerShell scripts, debugging, experimental interpretation, visualization, documentation, presentation preparation and publication checks. |
+| Affected materials | M3 analysis/evaluation scripts, Gradio demo, report preparation, figures, source documentation and landing-page updates. |
+| Representative requests | Verify model metrics and bootstrap intervals, compare learned gating with concatenation, audit source portability, check checkpoint inference and prepare publication files. These are prompt summaries, not verbatim transcripts. |
+| Student verification | Real saved results were checked against aggregate JSON and CSV files. Dataset-lock check, seven experiment unit tests and local checkpoint/demo validation passed. |
+| Publication evidence | Assignment 3 repository commit 26444f5 was pushed to main on 19 November 2026. |
+| Remaining limitations | Independent GPU replication is not established. Original crisis image galleries and internal presentation assets are not published. Video, hosted Gradio deployment and LMS submission are not claimed. |
+
+The test protocol is a custom filtered CrisisMMD benchmark, not the
+untouched official archive. Test macro-F1 results are 0.6127 (image),
+0.6666 (text), 0.7965 (concatenation), 0.7869 (fixed gate), and
+0.7986 (learned gate). Group-bootstrap intervals include zero for
+learned gate versus concatenation; superiority is not established.
+
+The student retains responsibility for the final academic submission.
